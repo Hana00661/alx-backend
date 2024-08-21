@@ -10,12 +10,15 @@ class LRUCache(BaseCaching):
     """a class that inherits from BaseCaching and is a caching system"""
 
     def __init__(self):
-        """ Initialize
+        """ Initialize the class with the parent's init method
         """
         super().__init__()
         self.queue = []
 
     def put(self, key, item):
+        """
+        Cache a key-value pair
+        """
         if key is None or item is None:
             return
         if key in self.cache_data:
@@ -28,6 +31,9 @@ class LRUCache(BaseCaching):
         self.queue.append(key)
 
     def get(self, key):
+        """
+        Return the value linked to a given key, or None
+        """
         if key is None or key not in self.cache_data:
             return None
         self.queue.remove(key)
